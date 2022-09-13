@@ -1,1 +1,46 @@
 //
+
+@import 'partials/variables';
+@import '~bootstrap';
+
+
+header{
+   a{
+    text-decoration: none;
+    color: $linkheader;
+    font-weight: bold;
+    font-size: 20px;
+   }
+
+   background-color: $bgheader;
+   height: 10vh;
+}
+
+main{
+   .ms_pl{
+      padding-left: 30px;
+   }
+
+   a{
+      text-decoration: none;
+      color: $linkmain;
+   }
+
+   .ms_font{
+      font-size: 20px;
+   }
+
+   .ms_bg{
+      background-image: url('https://i0.wp.com/www.meganerd.it/wp-content/uploads/2022/07/dc-comics-sdcc.jpg?fit=1665%2C1073&ssl=1');
+      height: 100vh;
+      width: 300vh;
+   }
+
+   .ms_bold{
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+   }
+}
+
+

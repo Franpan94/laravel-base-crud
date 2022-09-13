@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/comics', 'ComicController@index');
-Route::get('/comics{comic}', 'ComicController@show');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/comics', 'ComicController@index')->name('comic-strip');
+Route::get('/comics{comic}', 'ComicController@show')->name('link');
     
 
