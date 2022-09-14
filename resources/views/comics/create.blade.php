@@ -4,29 +4,29 @@
     <form action="{{ route('comics.store') }}" method="POST">
         @csrf
 
-        <div>Titolo
-            <input type="text" name="title" placeholder="Inserisci titolo">
+        <div class="p-4">Titolo <br>
+            <input type="text" name="title" id="title" placeholder="Inserisci titolo">
         </div>
-        <div>Descrizione
-            <textarea name="description" cols="30" rows="10">Inserisci descrizione</textarea>
+        <div class="p-4">Descrizione <br>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Inserisci descrizione"></textarea>
         </div>
-        <div>Copertina
-            <input type="text" name="thumb" placeholder="Inserisci copertina">
+        <div class="p-4">Copertina <br>
+            <input type="text" id="thumb" name="thumb" placeholder="Inserisci copertina">
         </div>
-        <div>Prezzo
-            <input type="text" name="price" placeholder="Inserisci prezzo">
+        <div class="p-4">Prezzo <br>
+            <input type="text" id="price" name="price" placeholder="Inserisci prezzo">
         </div>
-        <div>Serie
-            <input type="text" name="series" placeholder="Inserisci serie">
+        <div class="p-4">Serie <br>
+            <input type="text" id="series" name="series" placeholder="Inserisci serie">
         </div>
-        <div>Data
-            <input type="text" name="sale_date" placeholder="Inserisci data">
+        <div class="p-4">Data
+            <input type="text" id="sale_date" name="sale_date" placeholder="Inserisci data">
         </div>
-        <div>Tipo
-            <input type="text" name="type" placeholder="Inserisci tipo">
+        <div class="p-4">Tipo <br>
+            <input type="text" id="type" name="type" placeholder="Inserisci tipo">
         </div>
-        <div>
-            <button type="submit">
+        <div class="p-4">
+            <button class="btn btn-dark" type="submit">
                 Invia
             </button>
         </div>
