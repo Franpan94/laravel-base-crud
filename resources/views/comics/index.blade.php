@@ -3,6 +3,11 @@
 @section('main-content')
     <div class="container-fluid ms_pl">
         <div class="row pt-3">
+            @if (session('delete'))
+                <div class="alert alert-danger text-center">
+                    <span class="ms_bold">{{ session('delete') }} é stato eliminato con successo</span>
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>

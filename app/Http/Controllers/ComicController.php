@@ -49,7 +49,7 @@ class ComicController extends Controller
         $comic->sale_date = $data['sale_date'];
         $comic->type = $data['type'];
         $comic->save();
-        return redirect()->route('comics.show', compact('comic'));
+        return redirect()->route('comics.show', compact('comic'))->with('created', $comic->title);
     }
 
     /**
@@ -97,7 +97,7 @@ class ComicController extends Controller
         $comic->sale_date = $data['sale_date'];
         $comic->type = $data['type'];
         $comic->save();
-        return redirect()->route('comics.show', compact('comic'));
+        return redirect()->route('comics.show', compact('comic'))->with('edit', $comic->title);
     }
 
     /**
@@ -112,7 +112,7 @@ class ComicController extends Controller
         
         $comic->delete();
         
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('delete', $comic->title);
         
     }
 }
