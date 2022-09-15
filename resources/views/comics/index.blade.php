@@ -10,6 +10,7 @@
                         <th scope="col">Titolo</th>
                         <th scope="col">Serie</th>
                         <th scope="col">Tipo</th>
+                        <th>Modifica/Elimina</th>
                     </tr>
                 </thead>
                 @forelse ($comics as $comic)
@@ -19,6 +20,14 @@
                             <td><a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a></td>
                             <td>{{ $comic->series }}</td>
                             <td>{{ $comic->type }}</td>
+                            <td>
+                                <button class="btn btn-success">
+                                    <a href="{{ route('comics.edit', $comic->id) }}" class="text-white">Modifica</a>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <a href="" class="text-white">Elimina</a>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 @empty
