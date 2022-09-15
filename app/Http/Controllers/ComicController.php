@@ -84,12 +84,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
         //
         $data =$request->all();
-
-        $comic = Comic::findOrFail($id);
         
         $comic->title = $data['title'];
         $comic->description = $data['description'];
