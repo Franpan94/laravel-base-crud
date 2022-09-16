@@ -10,7 +10,7 @@ class ComicController extends Controller
     protected $validationdate = [
         'title'=>'required|min:3|max:255|unique:comics',
         'description'=>'required|min:10',
-        'thumb'=>'required|min:3',
+        'thumb'=>'required|active_url',
         'price'=>'required',
         'sale_date'=>'required|date',
     ];
