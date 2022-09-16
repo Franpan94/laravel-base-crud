@@ -4,9 +4,14 @@
     <div class="container-fluid ms_pl">
         <div class="row pt-3">
             @if (session('delete'))
-                <div class="alert alert-danger text-center">
-                    <span class="ms_bold">{{ session('delete') }} é stato eliminato con successo</span>
+                <div class="alert alert-danger">
+                    <span>{{ session('delete') }} é stato eliminato con successo</span>
                 </div>
+            @endif
+            @if (session('edit'))
+                <div class="alert alert-success mt-5">
+                   <span>{{ session('edit') }} é stato modificato con successo</span>
+                </div>   
             @endif
             <table class="table">
                 <thead>
@@ -29,10 +34,11 @@
                                 <button class="btn btn-success">
                                     <a href="{{ route('comics.edit', $comic->id) }}" class="text-white">Modifica</a>
                                 </button>
-                                <form action="{{ route('comics.destroy', $comic->id) }}" class="d-inline" method="POST">
+                                <form action="{{ route('comics.destroy', $comic->id) }}" 
+                                    class="d-inline ms_delete_elements" method="POST" date ='{{ $comic->title }}'>
                                   @csrf
                                   @method('DELETE')
-                                  <button class="btn btn-danger">Elimina</button>
+                                  <button type="submit" class="btn btn-danger">Elimina</button>
                                 </form>
                             </td>
                         </tr>
@@ -46,3 +52,19 @@
         </div>
     </div>
 @endsection
+
+{{-- @section('footer-script')
+  <script>
+      const deleteElements = document.querySelectorAll('.ms_delete_elements');
+      console.log(deleteElements);
+      deleteElements.forEach(deleteElement => {
+        deleteElement.addEventListener('submit', function(event)){
+            const title = this.getAttribute('date');
+            event.preventDefault();
+            const result = window.confirm(`Sei sicuro di voler eliminare ${title}`);
+            
+            if(result) this.submit;
+        });
+      });
+  </script>
+@endsection --}}

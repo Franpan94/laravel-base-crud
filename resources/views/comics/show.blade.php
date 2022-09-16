@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row">
             @if (session('edit'))
-                <div class="alert alert-success mt-5 text-center">
-                   <span class="ms_bold">{{ session('edit') }} é stato modificato con successo</span>
+                <div class="alert alert-success mt-5">
+                   <span>{{ session('edit') }} é stato modificato con successo</span>
                 </div>   
             @endif
             @if (session('created'))
-            <div class="alert alert-primary mt-5 text-center">
-                <span class="ms_bold">{{ session('created') }} é stato creato con successo</span>
+            <div class="alert alert-primary mt-5">
+                <span>{{ session('created') }} é stato creato con successo</span>
              </div> 
             @endif
             <div class="col-12 text-center p-5">

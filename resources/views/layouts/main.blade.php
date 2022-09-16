@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <script src="{{ asset('js/app.js')}}"></script>
     <title>Larave-Comics</title>
 </head>
 <body>
@@ -16,8 +17,12 @@
         @yield('main-content')
     </main>
 
+    {{-- @yield('footer-script') --}}
+
     <footer>
         @include('includes.footer')
     </footer>
+
+    
 </body>
 </html>

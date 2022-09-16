@@ -7,6 +7,19 @@ use App\Comic;
 
 class ComicController extends Controller
 {
+    protected $validationdate = [
+        'title'=>'required|min:3|max:255|unique:comics',
+        'description'=>'required|min:10',
+        'thumb'=>'required|min:3',
+        'price'=>'required',
+        'sale_date'=>'required|date',
+    ];
+
+    protected $validationmessages = [
+        'title.exists'=>'Inserire minimo 3, massimo 255 caratteri',
+        'description.exists'=>'Inserire minimo 10 caratteri',
+        'thumb.exists'=>'Inserire minimo 3 caratteri',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -38,6 +51,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $validationdates = $request->validate($this->validationdate, $this->validationmessages);
+
         $data =$request->all();
 
         $comic = new Comic();
@@ -86,6 +101,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $validationdates = $request->validate($this->validationdate, $this->validationmessages);
         //
         $data =$request->all();
         
