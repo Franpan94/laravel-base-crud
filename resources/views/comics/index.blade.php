@@ -27,7 +27,7 @@
                     <tbody>
                         <tr>
                             <th scope="row">{{ $comic->id }}</th>
-                            <td><a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a></td>
+                            <td><a href="{{ route('comics.show', $comic->slug) }}">{{ $comic->title }}</a></td>
                             <td>{{ $comic->series }}</td>
                             <td>{{ $comic->type }}</td>
                             <td>

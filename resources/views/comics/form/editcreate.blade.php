@@ -27,7 +27,7 @@
         @enderror
     </div>
     <div class="p-4">Prezzo <br>
-        <input type="text" id="price" name="price" placeholder="Inserisci prezzo" 
+        <input type="number" step="0.01" min="2.5" id="price" name="price" placeholder="Inserisci prezzo" 
           value="{{ old('price', $comic->price) }}" required
         >
         @error('price')

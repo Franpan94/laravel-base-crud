@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comic;
+use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
@@ -63,8 +64,9 @@ class ComicController extends Controller
         $comic->series = $data['series'];
         $comic->sale_date = $data['sale_date'];
         $comic->type = $data['type'];
+        $comic->slug = Str::slug($comic->title, '-');
         $comic->save();
-        return redirect()->route('comics.show', compact('comic'))->with('created', $comic->title);
+        return redirect()->route('comics.show', $comic->slug)->with('created', $comic->title);
     }
 
     /**
@@ -73,9 +75,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Comic $comic)
+    public function show($slug)
     {
         //
+        $comic = Comic::where('slug', $slug)->first();
         return view('comics.show', compact('comic'));
 
     }
@@ -103,17 +106,11 @@ class ComicController extends Controller
     {
         $validationdates = $request->validate($this->validationdate, $this->validationmessages);
         //
-        $data =$request->all();
+        $data = $request->all();
         
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        $comic->save();
-        return redirect()->route('comics.show', compact('comic'))->with('edit', $comic->title);
+        $comic->slug = Str::slug($data['title'], '-');
+        $comic->update($data);
+        return redirect()->route('comics.show', $comic->slug)->with('edit', $comic->title);
     }
 
     /**

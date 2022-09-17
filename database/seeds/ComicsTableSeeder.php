@@ -129,6 +129,7 @@ class ComicsTableSeeder extends Seeder
 
         foreach($comics as $comic){
             $newComic = new Comic();
+            
             $newComic -> title = $comic['title'];
             $newComic -> description = $comic['description'];
             $newComic -> thumb = $comic['thumb'];

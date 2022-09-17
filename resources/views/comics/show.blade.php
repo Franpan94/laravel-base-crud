@@ -18,7 +18,7 @@
                 <img class="pt-5 pb-5" src="{{ $comic->thumb }}" alt="thumb">
                 <p class="ms_font">{{ $comic->description }}</p>
                 <h6>Prezzo: &euro; {{ $comic->price }}</h6>
-                <h6>Anno: {{ $comic->sale_date }}</h6>
+                <h6>Anno: {{ $comic->sale_date }} | {{ $comic->slug }}</h6>
             </div>
         </div>
         <div class="d-flex justify-content-center pb-3">
